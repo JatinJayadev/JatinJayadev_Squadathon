@@ -15,7 +15,7 @@ function App() {
   }, []);
 
   const fetchTodoList = () => {
-    axios.get('http://localhost:4060/todo')
+    axios.get('https://jatinjayadev-squadathon.onrender.com/todo')
       .then((res) => {
         setTodo(res.data);
       })
@@ -25,7 +25,7 @@ function App() {
   };
 
   const handleAddBtn = () => {
-    axios.post('http://localhost:4060/addTodo', { value })
+    axios.post('https://jatinjayadev-squadathon.onrender.com/addTodo', { value })
       .then((res) => {
         console.log(res)
         setValue("")
@@ -42,7 +42,7 @@ function App() {
     console.log(newValue)
 
     if (newValue) {
-      axios.put(`http://localhost:4060/updateTodo/${id}`, { newValue })
+      axios.put(`https://jatinjayadev-squadathon.onrender.com/updateTodo/${id}`, { newValue })
         .then((res) => {
           console.log(res)
           fetchTodoList()
@@ -56,7 +56,7 @@ function App() {
 
   const handleDeleteBtn = (id) => {
     console.log(id)
-    axios.delete(`http://localhost:4060/deleteTodo/${id}`)
+    axios.delete(`https://jatinjayadev-squadathon.onrender.com/deleteTodo/${id}`)
       .then((res) => {
         console.log(res)
         fetchTodoList()
