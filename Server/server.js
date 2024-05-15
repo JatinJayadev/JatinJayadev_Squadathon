@@ -12,7 +12,7 @@ app.use(express.json())
 const URI = process.env.URI
 const PORT = 4060
 
-mongoose.connect(URI)
+mongoose.connect(URI, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => {
         console.log("COnnected to DB")
         app.get('/', (req, res) => {
@@ -22,7 +22,6 @@ mongoose.connect(URI)
     .catch((err) => {
         console.log(err)
     })
-
 
 app.use('/', route)
 app.listen(PORT, () => {
